@@ -26,7 +26,7 @@ This image can be written to a 2GB (or larger) microSD card, via 'dd' on Linux o
 For the Cherry Blossom Linux image please visit the following link
 There are Two images in this repository , Lightwheigt EMMC image and a full Cherry image.
 
-https://drive.google.com/drive/folders/1PCsM-YSydnVDRZh_zOiHFB61y2fd6OCu?usp=sharing
+https://drive.google.com/drive/folders/1j5dsH3DSFfHHZwSp7D7rXoTJVxT-0lyx?usp=sharing
 
 For more information please contact Arrow South Africa , +27119239600 , info@arrow.altech.co.za
 
