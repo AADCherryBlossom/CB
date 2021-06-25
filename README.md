@@ -42,10 +42,12 @@ https://beagleboard.org/p
 https://beagleboard.org/Videos
 
 
-Android
+<tr><td>UBUNTU:</td></tr>
+
 https://elinux.org/BeagleBoardUbuntu#eMMC:_All_BeagleBone_Variants_with_eMMC
 
-Android
+Android:
+
 https://elinux.org/Beagleboard:Android
 
 http://bbbandroid.sourceforge.net/
