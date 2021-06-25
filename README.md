@@ -7,7 +7,7 @@ Cherry Blossom comes with onboard memory 4GB (older models have 2GB EMMC) and a 
  It has lot of I/O pins, including analog-to-digital converter (ADC) and pulse-width-modulation (PWM) pins. 
  It also has an HDMI output(via stacker board), a USB plug (for a camera, keyboard/mouse, etc. via stacker board) and another USB for connection to a computer, ethernet(via stacker board), on-board LEDs, and a 5V input jack.
  
-Terms of Use
+<b><p>Terms of Use</b>
 UPDATED INFORMATION
 
 You may use the Cherry Blossom design materials as you choose. 
