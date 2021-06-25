@@ -42,7 +42,9 @@ https://beagleboard.org/p
 https://beagleboard.org/Videos
 
 
-<tr><td><b>UBUNTU:</td></tr>
+<tr><td>
+ 
+ UBUNTU:
 
 https://elinux.org/BeagleBoardUbuntu#eMMC:_All_BeagleBone_Variants_with_eMMC
 
@@ -55,6 +57,7 @@ http://bbbandroid.sourceforge.net/
 https://beagleboard.org/p/hendersa/android-on-the-beaglebone-black-with-the-3-8-linux-kernel-341710
 
 https://2net.co.uk/tutorial/android-4.4-beaglebone-update
+ </td></tr>
 
 
 
