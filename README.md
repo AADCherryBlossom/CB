@@ -42,7 +42,7 @@ https://beagleboard.org/p
 https://beagleboard.org/Videos
 
 
-<tr><td>UBUNTU:</td></tr>
+<tr><td><b>UBUNTU:</td></tr>
 
 https://elinux.org/BeagleBoardUbuntu#eMMC:_All_BeagleBone_Variants_with_eMMC
 
