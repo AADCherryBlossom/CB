@@ -32,19 +32,28 @@ For more information please contact Arrow South Africa , +27119239600 , info@arr
 
 
 Extra resources:
+
 General Projects and Cumunity support
+
 https://forum.beagleboard.org/
+
 https://beagleboard.org/p
+
 https://beagleboard.org/Videos
+
 
 Android
 https://elinux.org/BeagleBoardUbuntu#eMMC:_All_BeagleBone_Variants_with_eMMC
 
 Android
 https://elinux.org/Beagleboard:Android
+
 http://bbbandroid.sourceforge.net/
+
 https://beagleboard.org/p/hendersa/android-on-the-beaglebone-black-with-the-3-8-linux-kernel-341710
+
 https://2net.co.uk/tutorial/android-4.4-beaglebone-update
+
 
 
 
