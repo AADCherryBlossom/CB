@@ -14,6 +14,9 @@ pass: temppwd
 
 user: cherry
 pass: blossom
+
+user: ubuntu
+pass: temppwd
 	
 //###################### install set programs some cherry blossom ##############################
 
@@ -49,15 +52,15 @@ https://elinux.org/Beagleboard:Expanding_File_System_Partition_On_A_microSD
 ***************** sequence important here ****************************
 
 sudo apt-get update
-sudo apt-get upgrade ............................Takes along on 600Mhz
+sudo apt-get upgrade 
 
-sudo apt-get install gnome-tweak-tool..............Takes along on 600Mhz
+sudo apt-get install gnome-tweak-tool
 
 sudo apt-get install exfat-fuse exfat-utils
 
 sudo apt-get install software-properties-common
 
-sudo apt-get install python-software-properties
+
 
 sudo apt-get install build-essential python-dev python-setuptools python-pip python-smbus -y
 
@@ -66,19 +69,7 @@ sudo pip install Adafruit_BBIO
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo dhclient
-
-sudo apt-get update
-sudo apt-get upgrade 
-
-sudo apt-get -y install lxde lxde-core lxde-icon-theme  .......for GUI.....when running this command the eth0 will stop , use the usb interface to log back in and configure rest
-
 sudo apt-get install xz-utils
-
-sudo dhclient
-
-sudo apt-get update
-sudo apt-get upgrade 
 
 sudo apt-get install samba ..................... windows file sharing 
 
@@ -93,6 +84,8 @@ sudo apt-get install python3
 sudo apt-get install git-core
 sudo apt-get install cron ....................... task sheduler
 sudo apt-get install mc		.................... midnight comander similar to norton comander/totalcommander
+
+
 
 ==== if midnight commander does not exist in the apt-get install  follow the following lines =====
 
@@ -113,80 +106,9 @@ sudo apt-get install network-manager
 
 sudo apt-get install wput
 
+
 sudo apt-get install aptitude
-sudo aptitude reinstall lightdm
-sudo aptitude install gdm
 
-
-sudo apt-get update
-sudo apt-get upgrade
-
-
-sudo apt-get install tightvncserver
-sudo apt-get install xrdp ........................ remote desktop
-
-sudo apt-get update
-sudo apt-get upgrade
-
-sudo dhclient ................needed to start LAN connection for dhcp client interface
-
-
-sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal gnome-core
-sudo apt-get install vnc4server
-sudo cp /usr/bin/vncserver /usr/bin/vncserver.bkp
-sudo vim /usr/bin/vncserver
-
-#Find this line "# exec /etc/X11/xinit/xinitrcnn".
-#and add these lines like below
-
-    "# exec /etc/X11/xinit/xinitrcnn".
-       "gnome-panel &n".
-       "gnome-settings-daemon &n".
-       "metacity &n".
-       "nautilus &n".
-       "gnome-terminal &n".
-
-$ vncserver
-You will require a password to access your desktops through VNC Clients.
-Password:******
-Verify:******
-
-
-xauth: file /root/.Xauthority does not exist
-New 'ubuntu-desktop:1 (root)' desktop is ubuntu-desktop:1
-
-Starting applications specified in /root/.vnc/xstartup
-Log file is /root/.vnc/ubuntu-desktop:1.log
-
-$ netstat -tulpn
-
-#allow SSH
-$ sudo ufw allow OpenSSH
-
-#allowing single port 5901 port
-$ sudo ufw allow 5901/tcp
-
-#To allow series of port 5901 - 5910, follow
-$ sudo ufw allow 5901:5910/tcp
-
-#To check firewall rules
-$ sudo  ufw status verbose
-
-
-
-############################## optional###############################
-
-sudo apt-get install dkms
-sudo apt-get install vim emacs gedit
-
-sudo apt-get install libv4l-0
-sudo apt-get install uvccapture
-sudo apt-get install streamer
-
-sudo apt-get install cheese
-sudo apt-get install fswebcam
-
-sudo apt-get install motion
 
 
 //################################### creating the rc.local service to use it to execute startup code
@@ -249,109 +171,6 @@ Restart cherry blossom immediately to see if it runs as intended.
 reboot 
 
 
-########################## network config if required and not using DHCP ##################################
-
-ifconfig -a
-ifconfig eth0 down
-ifconfig eth0 up
-
-ifconfig eth0 192.168.2.2 netmask 255.255.255.0 broadcast 192.168.2.255
-ifconfig eth0 mtu 1500
-
-route add default gw 172.30.10.1 ..change per your gateways settingns
-
-
-
-Permanent settings
-
-# cat /etc/sysconfig/network
-NETWORKING=yes
-HOSTNAME=frida.localdomain
-GATEWAY=172.30.10.1
-
-
-# cat /etc/sysconfig/network-scripts/ifcfg-eth0
-DEVICE=eth0
-BOOTPROTO=static
-BROADCAST=172.30.10.255
-IPADDR=172.30.10.101
-NETMASK=255.255.255.0
-ONBOOT=yes
-
-# service network restart
-Shutting down interface eth0:                              [  OK  ]
-Shutting down loopback interface:                          [  OK  ]
-Setting network parameters:                                [  OK  ]
-Bringing up loopback interface:                            [  OK  ]
-Bringing up interface eth0:                                [  OK  ]
-
-Configure DNS server
-
-echo “nameserver 207.62.187.54” > /etc/resolv.conf
-
-
-
-
-
-######################################### LXDE on Cherry Blossom debian  ####################3
-
-LXDE 
-
-This section assumes you have completed either of the processes described on Debian On BeagleBone Black. This section section describes how to install LXDE on a micro SD card or the eMMC, with Debian Wheezy, that you can boot from with your BeagleBone Black. It is probably the most stable out of the options listed on this page.
-
-    With a powered off BBB, make sure you have the micro SD card with Debian Wheezy installed on it in the BBB. Also, be sure to have Ethernet, a display, mouse, and keyboard plugged in
-    While holding the 'boot' button, apply power to board and don't release the 'boot' button until the USER LEDs begin to flicker
-        You should use a 5V external power source, USB power may not work
-    After about a minute your screen show should the login prompt. Sign in
-        If you are booting from a microSD card
-
-        User: debian
-        Password: debian
-
-        If you are booting from the eMMC
-
-        User: debian
-        Password: temppwd
-
-    Enter the command: sudo apt-get update
-
-    After about 2 minutes that process will finish. 
-
-Then enter the command: sudo apt-get -y install lxde lxde-core lxde-icon-theme
-
-        This will begin installing LXDE onto the micro SD card or eMMC. It will finish after about 30 minutes
-    When the terminal returns to the comand line type: "sudo reboot" and hit enter
-
-        Remember, the password is: debian or temppwd
-    This will restart the BBB and after a few minutes there will be an LXDE login prompt. Select 'Debian User' and sign in
-        If the BBB doesn't reboot with LXDE interface, remove power, and re-apply the power. 
-    You will now have an LXDE desktop.
-
-
-
-###################### hosts ###########################
-
-add hosts to hosts file in sudo nano -w /etc/hosts
-
-httpredir.debian.org has address 176.9.184.93
-httpredir.debian.org has address 5.153.231.35
-httpredir.debian.org has address 128.31.0.66
-httpredir.debian.org has IPv6 address 2001:41c8:1000:21::21:35
-httpredir.debian.org has IPv6 address 2a01:4f8:151:555d::42
-
-
-
-#################### RC.Local ############################ advise do this before istalling the lxde desktop and if IP config is required
-
-add startup programs under rc.local
-
-sudo nano -w /etc/rc.local
-
-sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0 broadcast 192.168.1.255
-sudo route add default gw 192.168.1.1
-sudo dhclient
-
-
 ################# resolve.conf ######################## optional only if no ping route can be resolved
 
 this is your dns name you want to use to resolve adresses
@@ -364,7 +183,10 @@ invoke-rc.d hostname.sh start
 invoke-rc.d networking force-reload
 invoke-rc.d network-manager force-reload
 
-#################### cloning a SD card after setup  is complete###################### when your ready to make a copy of your setup and want to role it out to another
+
+
+
+#################### cloning a SD card after setup  is complete# ##################### when your ready to make a copy of your setup and want to role it out to another
 
 find the device sunder /DEV ensure the disks are unmounted before prosessing the dd command
 
@@ -389,60 +211,6 @@ bs is block sizes , and count is how many blocks do you want , 1M x 4000 = 4GB s
 
 
 
-//====================================================================================== optional
-// setting up desktop manager if gui interface is required
-//============================
-
-
-
-sudo apt install xfce4
-
-sudo apt install lightdm 
-
-sudo systemctl start lightdm
-
-Just update the file [/etc/X11/xorg.conf.d/01-armbian-defaults.conf]  with the following content:  
-
-Section "ServerLayout"
-   Identifier     "X.org Configured"
-   Screen         0 "Screen0" 0 0
-   InputDevice    "Mouse0" "CorePointer"
-   InputDevice    "Keyboard0" "CoreKeyboard"
-EndSection
-Section "Screen"
-   Identifier   "Screen0"
-   Device       "GraphicCard"
-   Monitor      "Monitor0"
-   SubSection "Display"
-     Depth      24
-     Modes      "800x600"
-   EndSubSection
-EndSection
-Section "Monitor"
-        Identifier              "Monitor0"
-        Option                  "DPMS" "false"
-EndSection
-Section "Device"
-        Identifier      "GraphicCard"
-        Driver          "modesetting"
-EndSection
-Section "InputDevice"
-   Identifier  "Keyboard0"
-   Driver      "kbd"
-EndSection
-Section "InputDevice"
-   Identifier  "Mouse0"
-   Driver      "mouse"
-   Option       "Protocol" "auto"
-   Option       "Device" "/dev/input/mice"
-   Option       "ZAxisMapping" "4 5 6 7"
-EndSection
-Section "ServerFlags"
-        Option                  "BlankTime" "0"
-        Option                  "StandbyTime" "0"
-        Option                  "SuspendTime" "0"
-        Option                  "OffTime" "0"
-EndSection
 
 //====================================================================================
 //controlling GPIO using echo
@@ -601,5 +369,24 @@ apt-get install libqmi-utils
 https://techship.com/faq/how-to-step-by-step-set-up-a-data-connection-over-qmi-interface-using-qmicli-and-in-kernel-driver-qmi-wwan-in-linux/
 
 http://www.linuxfromscratch.org/blfs/view/svn/general/libqmi.html
+
+
+
+
+//===================================== install mosquitto =======================================
+
+sudo apt update
+
+sudo nano -w /etc/apt/sources.list
+Add “deb http://httpredir.debian.org/debian stretch main contrib non-free” to the bottom of the file. Write and close the file.
+
+sudo apt-get update
+sudo apt-get install mosquitto
+sudo apt install mosquitto mosquitto-clients
+
+exstra resource : 
+https://thenewstack.io/off-the-shelf-hacker-mosquitto-on-the-bone/
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-ubuntu-18-04
+
 
 
